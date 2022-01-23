@@ -1,0 +1,170 @@
+<!-- content @s -->
+<div class="nk-content nk-content-fluid">
+  <div class="container-xl wide-xl">
+    <div class="nk-content-inner">
+      <div class="nk-content-body">
+
+        <div class="nk-block-head nk-block-head-sm">
+          <div class="nk-block-between">
+            <div class="nk-block-head-content">
+              <h3 class="nk-block-title page-title">Market Data</h3>
+              <div class="nk-block-des text-soft">
+                <p>Welcome to DashLite Dashboard Template.</p>
+              </div>
+            </div>
+            <div class="nk-block-head-content">
+              <div class="toggle-wrap nk-block-tools-toggle">
+                <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
+                <div class="toggle-expand-content" data-content="pageMenu">
+                  <ul class="nk-block-tools g-3">
+                    <li><a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-download-cloud"></em><span>Export</span></a></li>
+                    <li><a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-reports"></em><span>Reports</span></a></li>
+                    <li class="nk-block-tools-opt">
+                      <div class="drodown">
+                        <a href="#" class="dropdown-toggle btn btn-icon btn-primary" data-toggle="dropdown"><em class="icon ni ni-plus"></em></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <ul class="link-list-opt no-bdr">
+                              <li><a href="#"><em class="icon ni ni-user-add-fill"></em><span>Add User</span></a></li>
+                              <li><a href="#"><em class="icon ni ni-coin-alt-fill"></em><span>Add Order</span></a></li>
+                              <li><a href="#"><em class="icon ni ni-note-add-fill-c"></em><span>Add Page</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Market Data</h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"><%= Numeric.setCurrency(market.total_mcap);%></span>
+                    <span class="change <%= (parseFloat(market.mcap_change)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(market.mcap_change)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(market.mcap_change));%>%
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Total Volume</div>
+                        <div class="amount"><%= Numeric.setCurrency(market.total_volume);%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Total Currencies</div>
+                        <div class="amount"><%= Numeric.setDecimal(market.currencies,0);%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Total Withdraw</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Withdraw"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"> 49,595.34 <span class="currency currency-usd">USD</span></span>
+                    <span class="change down text-danger"><em class="icon ni ni-arrow-long-down"></em>1.93%</span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">This Month</div>
+                        <div class="amount">2,940.59 <span class="currency currency-usd">USD</span></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">This Week</div>
+                        <div class="amount">1,259.28 <span class="currency currency-usd">USD</span></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered  card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Balance in Account</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Balance in Account"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"> 79,358.50 <span class="currency currency-usd">USD</span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">This Month</div>
+                        <div class="amount">2,940.59 <span class="currency currency-usd">USD</span></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">This Week</div>
+                        <div class="amount">1,259.28 <span class="currency currency-usd">USD</span></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>   
+
+        <div class="nk-block-head nk-block-head-sm">
+          <div class="nk-block-between">
+            <div class="nk-block-head-content">
+              <h3 class="nk-block-title page-title">Top 500 Cryptocurrencies</h3>
+            
+            </div>
+          </div>
+        </div>   
+
+        <div class="nk-block nk-block-lg">
+          <table id="dt-coinslist" class="nk-tb-list nk-tb-ulist coinslists" data-auto-responsive="false">
+            <thead>
+              <tr class="nk-tb-item nk-tb-head">
+                <th class="nk-tb-col tb-col-mb"><span class="sub-text">Name</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">Price</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">24h %</span></th>
+                <th class="nk-tb-col tb-col-lg"><span class="sub-text">24h $</span></th>
+                <th class="nk-tb-col tb-col-lg"><span class="sub-text">Market Capitalization</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">Volume</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">Circ. Supply</span></th>
+                <th class="nk-tb-col tb-col-md"><span class="sub-text">7 days</span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- content @e -->

@@ -1,0 +1,145 @@
+<!-- main header @s -->
+<div class="nk-header nk-header-fluid is-theme nk-header-fixed">
+  <div class="container-xl wide-xl">
+    <div class="nk-header-wrap">
+      <div class="nk-menu-trigger mr-sm-2 d-lg-none">
+        <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
+      </div>
+      <div class="nk-header-brand">
+        <a href="html/index.html" class="logo-link">
+          <img class="logo-light logo-img" src="/assets/img/coinforecast-logo.png" srcset="/assets/img/coinforecast-logo.png 2x" alt="logo">
+          <img class="logo-dark logo-img" src="/assets/img/coinforecast-logo.png" srcset="/assets/img/coinforecast-logo.png 2x" alt="logo-dark">
+        </a>
+      </div><!-- .nk-header-brand -->
+      <div class="nk-header-menu" data-content="headerNav">
+        <div class="nk-header-mobile">
+          <div class="nk-header-brand">
+            <a href="html/index.html" class="logo-link">
+              <img class="logo-light logo-img" src="/assets/img/coinforecast-logo.png" srcset="/assets/img/coinforecast-logo.png 2x" alt="logo">
+              <img class="logo-dark logo-img" src="./images/coinforecast-logo.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+            </a>
+          </div>
+          <div class="nk-menu-trigger mr-n2">
+            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-arrow-left"></em></a>
+          </div>
+        </div>
+        <ul class="nk-menu nk-menu-main ui-s2">
+          <li class="nk-menu-item active">
+            <a href="<%= __('routes.home');%>" class="nk-menu-link">
+              <span class="nk-menu-text">Home</span>
+            </a>
+          </li>
+          <li class="nk-menu-item active">
+            <a href="#" class="nk-menu-link">
+              <span class="nk-menu-text">Signals</span>
+            </a>
+          </li>
+          <li class="nk-menu-item active">
+            <a href="#" class="nk-menu-link">
+              <span class="nk-menu-text">Exchanges</span>
+            </a>
+          </li>
+          <li class="nk-menu-item active">
+            <a href="#" class="nk-menu-link">
+              <span class="nk-menu-text">Tools</span>
+            </a>
+          </li>
+          <li class="nk-menu-item active">
+            <a href="#" class="nk-menu-link">
+              <span class="nk-menu-text">Downloads</span>
+            </a>
+          </li>
+        </ul>
+      </div><!-- .nk-header-menu -->
+      <div class="nk-header-tools"> 
+        <ul class="nk-quick-nav">
+          <li class="dropdown user-dropdown order-sm-first">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <div class="user-toggle">
+                <div class="user-avatar sm">
+                  <em class="icon ni ni-user-alt"></em>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1 is-light">
+                <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                    <div class="user-card">
+                        <div class="user-avatar">
+                            <span>AB</span>
+                        </div>
+                        <div class="user-info">
+                            <span class="lead-text">Abu Bin Ishtiyak</span>
+                            <span class="sub-text">info@softnio.com</span>
+                        </div>
+                        <div class="user-action">
+                            <a class="btn btn-icon mr-n2" href="html/user-profile-setting.html"><em class="icon ni ni-setting"></em></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-inner user-account-info">
+                    <h6 class="overline-title-alt">Account Balance</h6>
+                    <div class="user-balance">1,494.23 <small class="currency currency-usd">USD</small></div>
+                    <div class="user-balance-sub">Locked <span>15,495.39 <span class="currency currency-usd">USD</span></span></div>
+                    <a href="#" class="link"><span>Withdraw Balance</span> <em class="icon ni ni-wallet-out"></em></a>
+                </div>
+                <div class="dropdown-inner">
+                    <ul class="link-list">
+                        <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                        <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                        <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                        <li><a class="dark-mode-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-inner">
+                    <ul class="link-list">
+                        <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                    </ul>
+                </div>
+            </div>
+          </li><!-- .dropdown -->
+          <li class="dropdown language-dropdown d-none d-sm-block mr-n1">
+            <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+              <div class="user-avatar sm bg-azure currency-font">
+                  <%= fiat.object.symbol(session.currency);%>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-s1">
+              <ul class="currency-list">
+                <% for(let i=0;i<fiat.codes.length;i++){%>
+                  <% if(session.currency == fiat.codes[i]){ continue; }%>
+                  <li>
+                    <a href="#" class="language-item" data-id="<%= fiat.codes[i];%>">
+                      <span class="language-flag user-avatar sm bg-azure currency-font"><%= fiat.object.symbol(fiat.codes[i]);%></span>
+                      <span class="language-name"><%= fiat.codes[i];%></span>
+                    </a>
+                  </li>
+                <%}%>  
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown language-dropdown d-none d-sm-block mr-n1">
+            <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+              <div class="user-avatar sm">
+                <img src="/assets/img/flags/<%= language.current;%>.png" alt="">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-s1">
+              <ul class="language-list">
+                <% for(let i=0;i<language.list.length;i++){%>
+                  <% if(language.current == language.list[i]){ continue; }%>
+                  <li>
+                    <a href="<%= url;%><%= __({phrase:'links.'+language.link,locale:language.list[i]},(typeof language.replace != 'undefined' ? language.replace : ''));%>" class="language-item">
+                      <img src="/assets/img/flags/<%= language.list[i];%>.png" alt="" class="language-flag">
+                      <span class="language-name"><%= __('languages.'+language.list[i]);%></span>
+                    </a>
+                  </li>
+                <%}%>  
+              </ul>
+            </div>
+          </li>
+        </ul><!-- .nk-quick-nav -->
+      </div><!-- .nk-header-tools -->
+    </div><!-- .nk-header-wrap -->
+  </div><!-- .container-fliud -->
+</div>
+<!-- main header @e -->

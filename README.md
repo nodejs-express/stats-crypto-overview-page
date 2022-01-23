@@ -1,2 +1,5 @@
-# stats-crypto-overview-page
-Top 500 Cryptocurrency Forecast Template
+# stats-overview-page
+Open source stats overview template
+
+
+A Node JS web application for displaying and evaluating the top 500 cryptocurrencies.

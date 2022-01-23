@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="<%= language.current; %>">
+	<head>
+    <%- include('../../partials/scriptsHead', {title:__('home.page-title'),description:__('home.page-description')}); %>
+	</head>
+  <body class="nk-body npc-invest bg-lighter">
+  	<div class="nk-app-root">
+      <div class="nk-wrap">
+      	<%- include('../../partials/navHeader'); %>
+  			<%- include('content'); %>
+  			<%- include('../../partials/navFooter'); %>
+  		</div>
+    </div>
+    <%- include('../../partials/scripts'); %>
+  </body>
+</html>

@@ -1,0 +1,673 @@
+<!-- content @s -->
+<div class="nk-content nk-content-fluid">
+  <div class="container-xl wide-xl">
+    <div class="nk-content-inner">
+      <div class="nk-content-body">
+
+        <div class="nk-block-head nk-block-head-sm">
+          <div class="nk-block-between">
+            <div class="nk-block-head-content">
+              <h3 class="nk-block-title page-title"><%= data.name;%> <%= data.symbol;%> Prediction / Forecast & Analysis</h3>
+              <div class="nk-block-des text-soft">
+                <p>Welcome to DashLite Dashboard Template.</p>
+              </div>
+            </div>
+            <div class="nk-block-head-content">
+              <div class="toggle-wrap nk-block-tools-toggle">
+                <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
+                <div class="toggle-expand-content" data-content="pageMenu">
+                  <ul class="nk-block-tools g-3">
+                    <li><a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-download-cloud"></em><span>Export</span></a></li>
+                    <li><a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-reports"></em><span>Reports</span></a></li>
+                    <li class="nk-block-tools-opt">
+                      <div class="drodown">
+                        <a href="#" class="dropdown-toggle btn btn-icon btn-primary" data-toggle="dropdown"><em class="icon ni ni-plus"></em></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <ul class="link-list-opt no-bdr">
+                              <li><a href="#"><em class="icon ni ni-user-add-fill"></em><span>Add User</span></a></li>
+                              <li><a href="#"><em class="icon ni ni-coin-alt-fill"></em><span>Add Order</span></a></li>
+                              <li><a href="#"><em class="icon ni ni-note-add-fill-c"></em><span>Add Page</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle"><%= data.name;%> <%= data.symbol;%></h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"><%= Numeric.setCurrency(data.price);%></span>
+                    <span class="change <%= (parseFloat(data.change_percent)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(data.change_percent)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(data.change_percent));%>%
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Market Cap.</div>
+                        <div class="amount"><%= Numeric.setCurrency(data.mcap);%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Total Volume</div>
+                        <div class="amount"><%= Numeric.setCurrency(parseFloat(data.volume));%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Price Change</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Withdraw"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount">
+                      <%= Numeric.setCurrency(data.change_price);%>
+                    </span>
+                    <span class="change <%= (parseFloat(data.change_percent)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(data.change_percent)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(data.change_percent));%>%
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">High 24h</div>
+                        <div class="amount"><%= Numeric.setCurrency(data.high);%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Low 24h</div>
+                        <div class="amount"><%= Numeric.setCurrency(data.low);%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered  card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">All Time High</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Balance in Account"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"><%= Numeric.setCurrency(data.ath);%></span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">ATH Date</div>
+                        <div class="amount"><%= data.ath_date;%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Total Supply</div>
+                        <div class="amount"><%= Numeric.setDecimal(parseFloat(data.supply),0);%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>   
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-4">
+              <div class="card card-bordered card-full <%= (metrics.empty ? 'bg-danger-dim border-danger' : '');%>">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Volatility of <%= data.symbol;%> Price</h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <%if(metrics.empty){%>
+                    <span class="amount text-danger">Not enough data</span>
+                    <%}else{%>
+                    <span class="amount"><%= Numeric.setDecimal(metrics.volatile);%>%</span>
+                    <span class="change <%= (parseFloat(metrics.volatile)>=5 ? 'text-danger' : 'text-warning');%>">
+                      =
+                      <%= Numeric.setCurrency(parseFloat(metrics.volatilePrice));%>
+                    </span>
+                    <%}%>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Lower bound</div>
+                        <div class="amount"><%= Numeric.setCurrency(parseFloat(metrics.volatileRange[0]));%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Upper bound</div>
+                        <div class="amount"><%= Numeric.setCurrency(parseFloat(metrics.volatileRange[1]));%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered card-full <%= (metrics.empty ? 'bg-danger-dim border-danger' : '');%>">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Average Price last 30 days</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Withdraw"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <%if(metrics.empty){%>
+                    <span class="amount text-danger">Not enough data</span>
+                    <%}else{%>
+                    <span class="amount">
+                      <%= Numeric.setCurrency(parseFloat(metrics.avg[0]));%>
+                    </span>
+                    <span class="change <%= (parseFloat(metrics.avgChange)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.avgChange)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(metrics.avgChange));%>%
+                    </span>
+                    <%}%>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">AVG (L60d)</div>
+                        <div class="amount"><%= Numeric.setCurrency(parseFloat(metrics.avg[1]));%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">AVG (L90d)</div>
+                        <div class="amount"><%= Numeric.setCurrency(parseFloat(metrics.avg[2]));%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered card-full <%= (metrics.empty ? 'bg-danger-dim border-danger' : '');%>">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle"><%= data.symbol;%> Price Target in 24h</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Balance in Account"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <%if(metrics.empty){%>
+                    <span class="amount text-danger">Not enough data</span>
+                    <%}else{%>
+                    <span class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[0]));%></span>
+                    <span class="change <%= (parseFloat(metrics.predictChange)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.predictChange)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(metrics.predictChange));%>%
+                    </span>
+                    <%}%>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Target in 48h</div>
+                        <div class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[1]));%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Target in 72h</div>
+                        <div class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[2]));%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>   
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle"><%= data.name;%> <%= data.symbol;%> Price Prediction</h6>
+                    </div>
+                  </div>
+                  <%if(!metrics.empty){%>
+                  <div class="card-amount">   
+                    <span class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[0]));%></span>
+                    <span class="change <%= (parseFloat(metrics.predictChange)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.predictChange)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(metrics.predictChange));%>%
+                    </span>
+                  </div>
+                  <%}%>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-prediction"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Momentum</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Withdraw"></em>
+                    </div>
+                  </div>
+                  <%if(!metrics.empty){%>
+                  <div class="card-amount">   
+                    <span class="amount"><%= Numeric.setDecimalMaxFraction(parseFloat(metrics.momentum),2,2);%></span>
+                    <span class="change <%= (parseFloat(metrics.momentum)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.momentum)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= (parseFloat(metrics.momentum)>=0 ? 'Bullish' : 'Bearish');%>
+                    </span>
+                  </div>
+                  <%}%>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-momentum"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>  
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Growth Performance</h6>
+                    </div>
+                  </div>
+                  <%if(!metrics.empty){%>
+                  <div class="card-amount">   
+                    <span class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[0]));%></span>
+                    <span class="change <%= (parseFloat(metrics.predictChange)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.predictChange)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(metrics.predictChange));%>%
+                    </span>
+                  </div>
+                  <%}%>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-performance"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Price Development in 2022</h6>
+                    </div>
+                  </div>
+                  <%if(!metrics.empty){%>
+                  <div class="card-amount">   
+                    <span class="amount">≈ <%= Numeric.setCurrency(parseFloat(metrics.prediction[0]));%></span>
+                    <span class="change <%= (parseFloat(metrics.predictChange)>=0 ? 'text-teal' : 'down text-danger');%>">
+                      <em class="icon ni <%= (parseFloat(metrics.predictChange)>=0 ? 'ni-arrow-long-up' : 'ni-arrow-long-down');%>"></em>
+                      <%= Numeric.setDecimal(parseFloat(metrics.predictChange));%>%
+                    </span>
+                  </div>
+                  <%}%>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-development"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>   
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Technical Chart Analysis</h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">   
+                    <span class="amount">Pattern matching</span>
+                  </div>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-technical-analysis"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-6">
+              <div class="card card-bordered card-full card-relative card-chart">
+                <div class="card-inner">
+                  <div class="spinner-wrapper">
+                    <div class="spinner-icon"></div>
+                    <div class="spinner-text">Loading...</div>
+                  </div>
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Ichimoku Cloud</h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">   
+                    <span class="amount">Direction & Dynamic</span>
+                  </div>
+                  <div class="card-amount amountHide">
+                    <span class="amount text-danger">Not enough data</span>
+                  </div>  
+                  <div id="chart-ichimoku-cloud"></div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>  
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Block Time</h6>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount"><%= (data.block_time == '-' ? 'Unknown' : data.block_time);%></span>
+                    <span class="change">
+                      <em class="icon ni ni-clock"></em>
+                      Minutes
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Hashing Algo.</div>
+                        <div class="amount"><%= (data.hashing_algorithm == '-' ? 'Unknown' : data.hashing_algorithm);%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Genesis Block</div>
+                        <div class="amount"><%= (data.genesis_date == null ? 'Unknown' : data.genesis_date);%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Twitter Follower</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Withdraw"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount">
+                      <%if(data.twitter_followers != '-'){%>
+                        <%= Numeric.setDecimal(data.twitter_followers,0);%>
+                      <%}else{%>
+                      Unknown
+                      <%}%>
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Reddit Subscr.</div>
+                        <div class="amount">
+                          <%if(data.reddit_subscribers != '-'){%>
+                            <%= Numeric.setDecimal(data.reddit_subscribers,0);%>
+                          <%}else{%>
+                          Unknown
+                          <%}%>
+                        </div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Alexa Rank</div>
+                        <div class="amount">
+                          <%if(data.alexa_rank != '-'){%>
+                            <%= Numeric.setDecimal(data.alexa_rank,0);%>
+                          <%}else{%>
+                          Unknown
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered  card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-0">
+                    <div class="card-title">
+                      <h6 class="subtitle">Social Media Popularity</h6>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Balance in Account"></em>
+                    </div>
+                  </div>
+                  <div class="card-amount">
+                    <span class="amount">
+                      <%if(data.votes_up != '-'){%>
+                        <%= Numeric.setDecimal(data.votes_up);%>%
+                      <%}else{%>
+                      Unknown
+                      <%}%>
+                    </span>
+                    <span class="change down text-danger">
+                      <%if(data.votes_down != '-'){%>
+                        <em class="icon ni ni-thumbs-down"></em>
+                       <%= Numeric.setDecimal(parseFloat(data.votes_down));%>%
+                      <%}%>                      
+                    </span>
+                  </div>
+                  <div class="invest-data">
+                    <div class="invest-data-amount g-2">
+                      <div class="invest-data-history">
+                        <div class="title">Facebook Name</div>
+                        <div class="amount"><%= (data.facebook_username.length ? data.facebook_username : '-');%></div>
+                      </div>
+                      <div class="invest-data-history">
+                        <div class="title">Twitter Name</div>
+                        <div class="amount"><%= (data.twitter_screen_name.length ? data.twitter_screen_name : '-');%></div>
+                      </div>
+                    </div>
+                    <div class="invest-data-ck"></div>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>   
+
+        <div class="nk-block">
+          <div class="row g-gs">
+            <div class="col-md-8">
+              <div class="card card-bordered card-full">
+                <div class="card-inner">
+                  <div class="nk-block-text">
+                    <h6><%= data.name;%> <%= data.symbol;%> Description</h6>
+                    <p>
+                      <%- data.description;%>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="card card-bordered  card-full">
+                <div class="card-inner">
+                  <div class="card-title-group align-start mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Homepage</h6>
+                    </div>
+                  </div>
+                  <div class="invest-data-history">
+                  <%if(data.homepage != '-'){%>
+                    <%if(data.homepage.length){%>
+                    <%for(let i=0;i<data.homepage.length;i++){%>
+                      <%if(data.homepage[i].length){%>
+                        <div class="amount mb-1">
+                          <a href="<%= data.homepage[i];%>" target="_blank"><%= data.homepage[i];%></a>
+                        </div>
+                      <%}%>
+                    <%}%> 
+                    <%}%> 
+                  <%}%>
+                  </div>
+                  <div class="card-title-group align-start mt-2 mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Blockchain Site</h6>
+                    </div>
+                  </div>
+                  <div class="invest-data-history">
+                  <%if(data.blockchain_site != '-'){%>
+                  <%if(data.blockchain_site.length){%>
+                    <%for(let i=0;i<data.blockchain_site.length;i++){%>
+                      <%if(data.blockchain_site[i].length){%>
+                        <div class="amount mb-1">
+                          <a href="<%= data.blockchain_site[i];%>" target="_blank"><%= data.blockchain_site[i];%></a>
+                        </div>
+                      <%}%>
+                    <%}%>  
+                  <%}%>
+                  <%}%>
+                  </div>
+                  <div class="card-title-group align-start mt-2 mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Official Forum</h6>
+                    </div>
+                  </div>
+                  <div class="invest-data-history">
+                  <%if(data.official_forum_url != '-'){%>
+                  <%if(data.official_forum_url.length){%>
+                    <%for(let i=0;i<data.official_forum_url.length;i++){%>
+                      <%if(data.official_forum_url[i].length){%>
+                        <div class="amount mb-1">
+                          <a href="<%= data.official_forum_url[i];%>" target="_blank"><%= data.official_forum_url[i];%></a>
+                        </div>
+                      <%}%>
+                    <%}%>  
+                  <%}%>
+                  <%}%>
+                  </div>
+                  <div class="card-title-group align-start mt-2 mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Reddit</h6>
+                    </div>
+                  </div>
+                  <div class="invest-data-history">
+                    <div class="amount">
+                      <a href="<%= data.subreddit_url;%>" target="_blank"><%= data.subreddit_url;%></a>
+                    </div>
+                  </div>
+                  <div class="card-title-group align-start mt-2 mb-custom-8">
+                    <div class="card-title">
+                      <h6 class="subtitle">Repository</h6>
+                    </div>
+                  </div>
+                  <div class="invest-data-history">
+                    <%if(data.repos_url != '-'){%>
+                    <%if(data.repos_url.github.length){%>
+                    <%for(let i=0;i<data.repos_url.github.length;i++){%>
+                      <%if(data.repos_url.github[i].length){%>
+                        <div class="amount mb-1">
+                          <a href="<%= data.repos_url.github[i];%>" target="_blank"><%= data.repos_url.github[i];%></a>
+                        </div>
+                      <%}%>
+                    <%}%>  
+                   <%}%>
+                   <%}%>
+                  </div>
+                </div>
+              </div><!-- .card -->
+            </div><!-- .col -->
+          </div>
+        </div>  
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- content @e -->
+<input type="hidden" name="forecast-cleanname" value="<%= language.replace;%>" />
